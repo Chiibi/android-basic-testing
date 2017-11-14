@@ -20,15 +20,17 @@ public class NameValidator {
         return true;
     }
 
-    public void isEngLanguage(String name) throws RuleException {
+    public boolean isEngLanguage(String name) throws RuleException {
         if (!Pattern.matches("^[a-zA-Z]+$", name)){
             throw new RuleException("Name pattern miss match");
         }
+        return true;
     }
 
-    public void isNotNullOrEmpty(String name) throws RuleException {
+    public boolean isNotNullOrEmpty(String name) throws RuleException {
         if (name.isEmpty()){
             throw new RuleException("Name is empty");
         }
+        return true;
     }
 }
