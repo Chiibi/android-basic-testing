@@ -5,6 +5,8 @@ import org.junit.Test;
 import cc.somkiat.basicunittesting.CustomException.RuleException;
 import cc.somkiat.basicunittesting.Validator.NameValidator;
 
+import static junit.framework.Assert.assertTrue;
+
 public class NameValidationTest {
 
     @Test(expected = RuleException.class)
@@ -12,6 +14,13 @@ public class NameValidationTest {
         String name = "";
         NameValidator nameValidator = new NameValidator();
         nameValidator.isNotNullOrEmpty(name);
+    }
+
+    @Test
+    public void nameNotEmpty() throws RuleException {
+        String name = "Ohayo";
+        NameValidator nameValidator = new NameValidator();
+        assertTrue(nameValidator.isNotNullOrEmpty(name));
     }
 
     @Test(expected = RuleException.class)
@@ -34,4 +43,6 @@ public class NameValidationTest {
         NameValidator nameValidator = new NameValidator();
         nameValidator.isEngLanguage(name);
     }
+
+
 }
