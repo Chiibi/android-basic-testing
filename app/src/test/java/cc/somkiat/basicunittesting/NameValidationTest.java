@@ -13,4 +13,11 @@ public class NameValidationTest {
         NameValidator nameValidator = new NameValidator();
         nameValidator.isNotNullOrEmpty(name);
     }
+
+    @Test(expected = RuleException.class)
+    public void nameNotEnglish() throws RuleException {
+        String name = "ภาษาไทยนะจ๊ะ";
+        NameValidator nameValidator = new NameValidator();
+        nameValidator.isEngLanguage(name);
+    }
 }
