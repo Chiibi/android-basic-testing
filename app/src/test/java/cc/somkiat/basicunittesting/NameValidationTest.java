@@ -20,4 +20,11 @@ public class NameValidationTest {
         NameValidator nameValidator = new NameValidator();
         nameValidator.isEngLanguage(name);
     }
+
+    @Test(expected = RuleException.class)
+    public void nameHasSymbol() throws RuleException {
+        String name = "(^ o^)/";
+        NameValidator nameValidator = new NameValidator();
+        nameValidator.isEngLanguage(name);
+    }
 }
