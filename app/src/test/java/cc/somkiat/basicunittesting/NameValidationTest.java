@@ -27,4 +27,11 @@ public class NameValidationTest {
         NameValidator nameValidator = new NameValidator();
         nameValidator.isEngLanguage(name);
     }
+
+    @Test(expected = RuleException.class)
+    public void nameHasNumber() throws RuleException {
+        String name = "Suthep2540";
+        NameValidator nameValidator = new NameValidator();
+        nameValidator.isEngLanguage(name);
+    }
 }
