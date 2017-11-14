@@ -27,21 +27,28 @@ public class NameValidationTest {
     public void nameNotEnglish() throws RuleException {
         String name = "ภาษาไทยนะจ๊ะ";
         NameValidator nameValidator = new NameValidator();
-        nameValidator.isEngLanguage(name);
+        nameValidator.isPureEngCharater(name);
+    }
+
+    @Test
+    public void nameIsEnglish() throws RuleException {
+        String name = "MrChiibi";
+        NameValidator nameValidator = new NameValidator();
+        assertTrue(nameValidator.isPureEngCharater(name));
     }
 
     @Test(expected = RuleException.class)
     public void nameHasSymbol() throws RuleException {
         String name = "(^ o^)/";
         NameValidator nameValidator = new NameValidator();
-        nameValidator.isEngLanguage(name);
+        nameValidator.isPureEngCharater(name);
     }
 
     @Test(expected = RuleException.class)
     public void nameHasNumber() throws RuleException {
         String name = "Suthep2540";
         NameValidator nameValidator = new NameValidator();
-        nameValidator.isEngLanguage(name);
+        nameValidator.isPureEngCharater(name);
     }
 
 

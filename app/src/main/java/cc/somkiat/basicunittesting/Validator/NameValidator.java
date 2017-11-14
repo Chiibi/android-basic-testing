@@ -16,11 +16,11 @@ public class NameValidator {
 
     public boolean validate(String name) throws RuleException{
         isNotNullOrEmpty(name);
-        isEngLanguage(name);
+        isPureEngCharater(name);
         return true;
     }
 
-    public boolean isEngLanguage(String name) throws RuleException {
+    public boolean isPureEngCharater(String name) throws RuleException {
         if (!Pattern.matches("^[a-zA-Z]+$", name)){
             throw new RuleException("Name pattern miss match");
         }
