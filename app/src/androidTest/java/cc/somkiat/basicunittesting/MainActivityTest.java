@@ -28,6 +28,8 @@ import static org.hamcrest.core.IsNot.not;
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
+    final int DELAY_TIME = 2800;
+
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -42,6 +44,7 @@ public class MainActivityTest {
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
+        SystemClock.sleep(DELAY_TIME);
     }
 
     @Test
@@ -55,6 +58,7 @@ public class MainActivityTest {
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
+        SystemClock.sleep(DELAY_TIME);
     }
 
     @Test
@@ -68,6 +72,7 @@ public class MainActivityTest {
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
+        SystemClock.sleep(DELAY_TIME);
     }
 
     @Test
@@ -81,6 +86,7 @@ public class MainActivityTest {
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
+        SystemClock.sleep(DELAY_TIME);
     }
 
     @Test
@@ -94,6 +100,7 @@ public class MainActivityTest {
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
+        SystemClock.sleep(DELAY_TIME);
     }
 
     @Test
@@ -107,6 +114,7 @@ public class MainActivityTest {
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
+        SystemClock.sleep(DELAY_TIME);
     }
 
     @Test
