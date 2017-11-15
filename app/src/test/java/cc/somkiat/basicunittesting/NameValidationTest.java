@@ -45,7 +45,7 @@ public class NameValidationTest {
     }
 
     @Test
-    public void nameWithoutSymbol() throws Exception {
+    public void nameWithoutSymbol() throws RuleException {
         String name = "Usami";
         NameValidator nameValidator = new NameValidator();
         assertTrue(nameValidator.isPureEngCharacter(name));
@@ -59,14 +59,14 @@ public class NameValidationTest {
     }
 
     @Test
-    public void nameWithoutNumber() throws Exception {
+    public void nameWithoutNumber() throws RuleException {
         String name = "NameNoNum";
         NameValidator nameValidator = new NameValidator();
         assertTrue(nameValidator.isPureEngCharacter(name));
     }
 
     @Test
-    public void nameIsAllow() throws Exception {
+    public void nameIsAllow() throws RuleException {
         String name = "Chayapol";
         NameValidator nameValidator = new NameValidator();
         assertTrue(nameValidator.validate(name));
