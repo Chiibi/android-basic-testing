@@ -11,16 +11,15 @@ import cc.somkiat.basicunittesting.CustomException.RuleException;
 public class NameValidator {
 
     public NameValidator(){
-
     }
 
     public boolean validate(String name) throws RuleException{
         isNotNullOrEmpty(name);
-        isPureEngCharater(name);
+        isPureEngCharacter(name);
         return true;
     }
 
-    public boolean isPureEngCharater(String name) throws RuleException {
+    public boolean isPureEngCharacter(String name) throws RuleException {
         if (!Pattern.matches("^[a-zA-Z]+$", name)){
             throw new RuleException("Name pattern miss match");
         }

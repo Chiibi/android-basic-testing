@@ -27,42 +27,42 @@ public class NameValidationTest {
     public void nameNotEnglish() throws RuleException {
         String name = "ภาษาไทยนะจ๊ะ";
         NameValidator nameValidator = new NameValidator();
-        nameValidator.isPureEngCharater(name);
+        nameValidator.isPureEngCharacter(name);
     }
 
     @Test
     public void nameIsEnglish() throws RuleException {
         String name = "MrChiibi";
         NameValidator nameValidator = new NameValidator();
-        assertTrue(nameValidator.isPureEngCharater(name));
+        assertTrue(nameValidator.isPureEngCharacter(name));
     }
 
     @Test(expected = RuleException.class)
     public void nameHasSymbol() throws RuleException {
         String name = "(^ o^)/";
         NameValidator nameValidator = new NameValidator();
-        nameValidator.isPureEngCharater(name);
+        nameValidator.isPureEngCharacter(name);
     }
 
     @Test
     public void nameWithoutSymbol() throws Exception {
         String name = "Usami";
         NameValidator nameValidator = new NameValidator();
-        assertTrue(nameValidator.isPureEngCharater(name));
+        assertTrue(nameValidator.isPureEngCharacter(name));
     }
 
     @Test(expected = RuleException.class)
     public void nameHasNumber() throws RuleException {
         String name = "Suthep2540";
         NameValidator nameValidator = new NameValidator();
-        nameValidator.isPureEngCharater(name);
+        nameValidator.isPureEngCharacter(name);
     }
 
     @Test
     public void nameWithoutNumber() throws Exception {
         String name = "NameNoNum";
         NameValidator nameValidator = new NameValidator();
-        assertTrue(nameValidator.isPureEngCharater(name));
+        assertTrue(nameValidator.isPureEngCharacter(name));
     }
 
     @Test
