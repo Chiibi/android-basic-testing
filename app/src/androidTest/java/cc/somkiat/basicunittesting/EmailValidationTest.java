@@ -44,16 +44,16 @@ public class EmailValidationTest {
         emailValidator.isAllow(email);
     }
 
-    @Test(expected = RuleException.class)
-    public void emailWithoutDomain1() throws RuleException {
-        String email = "Chiibi@hotmail.in.th.com";
-        EmailValidator emailValidator = new EmailValidator();
-        emailValidator.isAllow(email);
-    }
-
     @Test
     public void emailIsAllow() throws RuleException {
         String email = "admin@hotmail.com";
+        EmailValidator emailValidator = new EmailValidator();
+        assertTrue(emailValidator.isAllow(email));
+    }
+
+    @Test
+    public void emailWithSubDomain() throws RuleException {
+        String email = "Chiibi.Chayapol_jame@it.kmitl.ac.th";
         EmailValidator emailValidator = new EmailValidator();
         assertTrue(emailValidator.isAllow(email));
     }
