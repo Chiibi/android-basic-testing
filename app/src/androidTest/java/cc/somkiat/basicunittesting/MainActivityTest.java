@@ -108,4 +108,13 @@ public class MainActivityTest {
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
     }
+
+    @Test
+    public void saveValidData() {
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.revertButton)).perform(scrollTo(), click());
+        onView(withId(R.id.userNameInput)).perform(scrollTo() ,replaceText("Chiibi"));
+        onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("Chiibi@hotmail.com"));
+        onView(withId(R.id.saveButton)).perform(scrollTo(), click());
+    }
 }
