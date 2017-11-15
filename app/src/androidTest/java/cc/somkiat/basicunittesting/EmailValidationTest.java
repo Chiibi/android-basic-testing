@@ -20,4 +20,11 @@ public class EmailValidationTest {
         EmailValidator emailValidator = new EmailValidator();
         emailValidator.isNotNullOrEmpty(email);
     }
+
+    @Test(expected = RuleException.class)
+    public void emailOnlyString() throws RuleException {
+        String email = "Chiibihotmailcom";
+        EmailValidator emailValidator = new EmailValidator();
+        emailValidator.isAllow(email);
+    }
 }
