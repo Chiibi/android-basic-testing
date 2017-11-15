@@ -34,4 +34,11 @@ public class EmailValidationTest {
         EmailValidator emailValidator = new EmailValidator();
         emailValidator.isAllow(email);
     }
+
+    @Test(expected = RuleException.class)
+    public void emailWithoutDomain() throws RuleException {
+        String email = "Chiibi@hotmail";
+        EmailValidator emailValidator = new EmailValidator();
+        emailValidator.isAllow(email);
+    }
 }
