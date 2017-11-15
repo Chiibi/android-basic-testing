@@ -56,4 +56,17 @@ public class MainActivityTest {
                 .getDecorView()))).check(matches(isDisplayed()));
     }
 
+    @Test
+    public void saveWithInvalidNameAndEmail() {
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.revertButton)).perform(scrollTo(), click());
+        onView(withId(R.id.userNameInput)).perform(scrollTo() ,replaceText("Chi6515-*-*ibi"));
+        onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("Chiibi-*/*-...hotm41313ailcom"));
+        onView(withId(R.id.saveButton)).perform(scrollTo(), click());
+        onView(withText("Name is invalid")).inRoot(withDecorView(not(mActivityTestRule
+                .getActivity()
+                .getWindow()
+                .getDecorView()))).check(matches(isDisplayed()));
+    }
+
 }
