@@ -64,4 +64,11 @@ public class NameValidationTest {
         NameValidator nameValidator = new NameValidator();
         assertTrue(nameValidator.isPureEngCharater(name));
     }
+
+    @Test
+    public void nameIsAllow() throws Exception {
+        String name = "Chayapol";
+        NameValidator nameValidator = new NameValidator();
+        assertTrue(nameValidator.validate(name));
+    }
 }
