@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import cc.somkiat.basicunittesting.CustomException.RuleException;
 import cc.somkiat.basicunittesting.Validator.EmailValidator;
 
+import static junit.framework.Assert.assertTrue;
+
 /**
  * Created by Chiib_000 on 15/11/2560.
  */
@@ -40,5 +42,19 @@ public class EmailValidationTest {
         String email = "Chiibi@hotmail";
         EmailValidator emailValidator = new EmailValidator();
         emailValidator.isAllow(email);
+    }
+
+    @Test(expected = RuleException.class)
+    public void emailWithoutDomain1() throws RuleException {
+        String email = "Chiibi@hotmail.in.th.com";
+        EmailValidator emailValidator = new EmailValidator();
+        emailValidator.isAllow(email);
+    }
+
+    @Test
+    public void emailIsAllow() throws RuleException {
+        String email = "admin@hotmail.com";
+        EmailValidator emailValidator = new EmailValidator();
+        assertTrue(emailValidator.isAllow(email));
     }
 }
