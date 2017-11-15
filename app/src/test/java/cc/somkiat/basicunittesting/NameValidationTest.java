@@ -57,4 +57,11 @@ public class NameValidationTest {
         NameValidator nameValidator = new NameValidator();
         nameValidator.isPureEngCharater(name);
     }
+
+    @Test
+    public void nameWithoutNumber() throws Exception {
+        String name = "NameNoNum";
+        NameValidator nameValidator = new NameValidator();
+        assertTrue(nameValidator.isPureEngCharater(name));
+    }
 }
