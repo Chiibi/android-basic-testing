@@ -1,5 +1,6 @@
 package cc.somkiat.basicunittesting;
 
+import android.os.SystemClock;
 import android.support.test.espresso.Espresso;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -90,6 +91,19 @@ public class MainActivityTest {
         onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText(""));
         onView(withId(R.id.saveButton)).perform(scrollTo(), click());
         onView(withText("Email is invalid")).inRoot(withDecorView(not(mActivityTestRule
+                .getActivity()
+                .getWindow()
+                .getDecorView()))).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void saveWithEmptyNameAndEmail() {
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.revertButton)).perform(scrollTo(), click());
+        onView(withId(R.id.userNameInput)).perform(scrollTo() ,replaceText(""));
+        onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText(""));
+        onView(withId(R.id.saveButton)).perform(scrollTo(), click());
+        onView(withText("Name is invalid")).inRoot(withDecorView(not(mActivityTestRule
                 .getActivity()
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
