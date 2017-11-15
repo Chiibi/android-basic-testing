@@ -27,4 +27,11 @@ public class EmailValidationTest {
         EmailValidator emailValidator = new EmailValidator();
         emailValidator.isAllow(email);
     }
+
+    @Test(expected = RuleException.class)
+    public void emailNonAddressSymbol() throws RuleException {
+        String email = "Chiibihotmail.com";
+        EmailValidator emailValidator = new EmailValidator();
+        emailValidator.isAllow(email);
+    }
 }
