@@ -81,4 +81,17 @@ public class MainActivityTest {
                 .getWindow()
                 .getDecorView()))).check(matches(isDisplayed()));
     }
+
+    @Test
+    public void saveWithEmptyEmail() {
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.revertButton)).perform(scrollTo(), click());
+        onView(withId(R.id.userNameInput)).perform(scrollTo() ,replaceText("Chiibi"));
+        onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText(""));
+        onView(withId(R.id.saveButton)).perform(scrollTo(), click());
+        onView(withText("Email is invalid")).inRoot(withDecorView(not(mActivityTestRule
+                .getActivity()
+                .getWindow()
+                .getDecorView()))).check(matches(isDisplayed()));
+    }
 }
