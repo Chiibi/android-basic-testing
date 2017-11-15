@@ -57,4 +57,11 @@ public class EmailValidationTest {
         EmailValidator emailValidator = new EmailValidator();
         assertTrue(emailValidator.isAllow(email));
     }
+
+    @Test
+    public void emailIsValidate() throws RuleException {
+        String email = "Chiibi@hotmail.com";
+        EmailValidator emailValidator = new EmailValidator();
+        assertTrue(emailValidator.isAllow(email));
+    }
 }
