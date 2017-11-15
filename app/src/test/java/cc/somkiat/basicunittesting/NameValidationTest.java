@@ -44,12 +44,17 @@ public class NameValidationTest {
         nameValidator.isPureEngCharater(name);
     }
 
+    @Test
+    public void nameWithoutSymbol() throws Exception {
+        String name = "Usami";
+        NameValidator nameValidator = new NameValidator();
+        assertTrue(nameValidator.isPureEngCharater(name));
+    }
+
     @Test(expected = RuleException.class)
     public void nameHasNumber() throws RuleException {
         String name = "Suthep2540";
         NameValidator nameValidator = new NameValidator();
         nameValidator.isPureEngCharater(name);
     }
-
-
 }
