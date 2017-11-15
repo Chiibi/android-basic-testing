@@ -117,4 +117,14 @@ public class MainActivityTest {
         onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("Chiibi@hotmail.com"));
         onView(withId(R.id.saveButton)).perform(scrollTo(), click());
     }
+
+    @Test
+    public void revertTest() {
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.userNameInput)).perform(scrollTo() ,replaceText("Chiibi"));
+        onView(withId(R.id.emailInput)).perform(scrollTo(), replaceText("Chiibi@hotmail.com"));
+        onView(withId(R.id.revertButton)).perform(scrollTo(), click());
+        onView(withId(R.id.userNameInput)).check(matches(withText("")));
+        onView(withId(R.id.emailInput)).check(matches(withText("")));
+    }
 }
