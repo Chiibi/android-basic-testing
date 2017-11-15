@@ -63,6 +63,6 @@ public class MainActivity extends AppCompatActivity implements UserProfile.Error
 
     @Override
     public void onError(String errorMessage) {
-        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 }

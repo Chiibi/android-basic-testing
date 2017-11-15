@@ -33,6 +33,6 @@ public class UserProfileTest implements UserProfile.ErrorListener{
 
     @Override
     public void onError(String errorMessage) {
-        
+
     }
 }
